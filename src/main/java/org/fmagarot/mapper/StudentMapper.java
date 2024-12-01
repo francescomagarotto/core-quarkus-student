@@ -9,5 +9,4 @@ public interface StudentMapper {
 
     StudentEntity toEntity(StudentResource studentResource);
 
-    StudentResource toResource(StudentEntity studentEntity);
 }

@@ -31,27 +31,27 @@ public class StudentService {
     @Transactional
     public void deleteStudent(long id) {
         StudentEntity studentEntity = em.find(StudentEntity.class, id);
-        checkExistence(id, studentEntity);
+        checkStudentExistence(id, studentEntity);
         em.remove(studentEntity);
     }
 
     public StudentEntity getStudent(long id) {
         StudentEntity student = em.find(StudentEntity.class, id);
-        checkExistence(id, student);
+        checkStudentExistence(id, student);
         return student;
     }
 
     @Transactional
     public StudentEntity updateStudent(long id, StudentResource student) {
         StudentEntity studentEntity = em.find(StudentEntity.class, id);
-        checkExistence(id, studentEntity);
+        checkStudentExistence(id, studentEntity);
         studentEntity.setEmail(student.getEmail());
         studentEntity.setName(student.getName());
         studentEntity.setPhone(student.getPhone());
         return em.merge(studentEntity);
     }
 
-    private static void checkExistence(long id, StudentEntity studentEntity) {
+    private void checkStudentExistence(long id, StudentEntity studentEntity) {
         if (studentEntity == null) {
             throw new StudentNotFoundException(String.format("Student %s not found", id));
         }

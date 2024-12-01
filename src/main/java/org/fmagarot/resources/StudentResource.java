@@ -7,12 +7,13 @@ import lombok.Data;
 
 @Data
 public class StudentResource {
-    @NotEmpty(message = "Student name must be inserted")
-    private String name;
-    @NotEmpty
-    @Email(message = "Email must be well formed")
-    private String email;
-    @NotEmpty
-    @Pattern(regexp = "^[0-9]+$", message = "Phone number must be numeric")
-    private String phone;
+
+  @NotEmpty(message = "Student name must be present")
+  private String name;
+  @NotEmpty
+  @Email(message = "Email must be well formed")
+  private String email;
+  @NotEmpty
+  @Pattern(regexp = "^[0-9]+$", message = "Phone number must be numeric")
+  private String phone;
 }

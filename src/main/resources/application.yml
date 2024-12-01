@@ -1,0 +1,12 @@
+quarkus:
+  profile: dev
+  application:
+    name: core-student
+    version: 1.0.0
+  http:
+    port: 9090
+  log:
+    file:
+      enable: true
+      encoding: UTF-8
+      path: ${quarkus.application.name}.log
